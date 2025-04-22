@@ -1,0 +1,86 @@
+<div class="card shadow-lg border-0 rounded-4">
+  <div class="card-header text-white text-center py-3" style="background: linear-gradient(135deg, #3D5AFE, #FF4081);">
+    <h2 class="mb-0">
+      <i class="bi bi-search me-2"></i> Search Student
+    </h2>
+  </div>
+  <div class="card-body p-4" style="background: linear-gradient(135deg, #ECEFF1, #FCE4EC);">
+    <!-- Search Input -->
+    <div class="input-group mb-4">
+      <span class="input-group-text text-white" style="background: linear-gradient(135deg, #283593, #FF4081);">
+        <i class="bi bi-search"></i>
+      </span>
+      <input
+        type="text"
+        class="form-control shadow-sm"
+        placeholder="Search student by name or ID..."
+        (keydown)="getSearchStudent()"
+        [(ngModel)]="searchKeyword"
+        style="border-radius: 10px; background-color: #F8BBD0;"
+      />
+    </div>
+
+    <!-- Student Table -->
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="text-center" style="background: linear-gradient(135deg, #283593, #FF4081); color: white;">
+          <tr>
+            <th scope="col"><i class="bi bi-hash"></i> ID</th>
+            <th scope="col"><i class="bi bi-person-fill"></i> Name</th>
+            <th scope="col"><i class="bi bi-envelope-fill"></i> Email</th>
+            <th scope="col"><i class="bi bi-geo-alt-fill"></i> Address</th>
+            <th scope="col"><i class="bi bi-phone-fill"></i> Contact</th>
+            <th scope="col"><i class="bi bi-briefcase-fill"></i> Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let s of searchResult" class="text-center hover-effect" style="background-color: #FFF3E0;">
+            <td>{{ s.sid }}</td>
+            <td>{{ s.sname }}</td>
+            <td>{{ s.emailId }}</td>
+            <td>{{ s.address }}</td>
+            <td>{{ s.contact }}</td>
+            <td>{{ s.department }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Card Hover Effect */
+  .card {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Input Styling */
+  .input-group-text {
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 8px;
+  }
+
+  .form-control {
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus {
+    box-shadow: 0px 0px 8px rgba(61, 90, 254, 0.5);
+  }
+
+  /* Table Styling */
+  .hover-effect:hover {
+    background-color: rgba(255, 64, 129, 0.15);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+</style>

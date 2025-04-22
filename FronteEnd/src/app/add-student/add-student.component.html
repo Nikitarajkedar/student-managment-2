@@ -1,0 +1,121 @@
+<h3 class="text-center text-primary mb-4">✨ Create Student</h3>
+<div [hidden]="submitted" class="card shadow-lg mx-auto border-0 rounded-4" style="width: 450px;">
+  <div class="card-body p-4">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3 position-relative">
+        <label for="firstName" class="form-label text-secondary">
+          <i class="bi bi-person-fill me-2"></i> First Name
+        </label>
+        <input
+          type="text"
+          class="form-control border-primary shadow-sm"
+          id="firstName"
+          required
+          [(ngModel)]="student.sname"
+          name="firstName"
+          placeholder="Enter First Name"
+        />
+      </div>
+      
+
+      <div class="form-group mb-3 position-relative">
+        <label for="emailId" class="form-label text-secondary">
+          <i class="bi bi-envelope-fill me-2"></i> Email ID
+        </label>
+        <input
+          type="email"
+          class="form-control border-info shadow-sm"
+          id="emailId"
+          required
+          [(ngModel)]="student.emailId"
+          name="emailId"
+          placeholder="Enter Email ID"
+        />
+      </div>
+
+      <div class="form-group mb-3 position-relative">
+        <label for="address" class="form-label text-secondary">
+          <i class="bi bi-geo-alt-fill me-2"></i> Address
+        </label>
+        <input
+          type="text"
+          class="form-control border-warning shadow-sm"
+          id="address"
+          required
+          [(ngModel)]="student.address"
+          name="address"
+          placeholder="Enter Address"
+        />
+      </div>
+
+      <div class="form-group mb-3 position-relative">
+        <label for="contact" class="form-label text-secondary">
+          <i class="bi bi-phone-fill me-2"></i> Contact
+        </label>
+        <input
+          type="text"
+          class="form-control border-danger shadow-sm"
+          id="contact"
+          required
+          [(ngModel)]="student.contact"
+          name="contact"
+          placeholder="Enter Contact Number"
+        />
+      </div>
+
+      <div class="form-group mb-3 position-relative">
+        <label for="department" class="form-label text-secondary">
+          <i class="bi bi-building-fill me-2"></i> Department
+        </label>
+        <input
+          type="text"
+          class="form-control border-success shadow-sm"
+          id="department"
+          required
+          [(ngModel)]="student.department"
+          name="department"
+          placeholder="Enter Department"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 fw-bold btn-hover">
+        <i class="bi bi-check-circle me-2"></i> Submit
+      </button>
+    </form>
+  </div>
+</div>
+
+<div [hidden]="!submitted" class="text-center mt-4">
+  <h4 class="text-success fw-bold">✅ You submitted successfully!</h4>
+</div>
+
+<style>
+  /* Card Styling */
+  .card {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Input Focus Styling */
+  input:focus {
+    box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+    outline: none;
+  }
+
+  /* Button Styling */
+  .btn-hover {
+    background: linear-gradient(135deg, #007bff, #00d2ff);
+    border: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-hover:hover {
+    background: linear-gradient(135deg, #00d2ff, #007bff);
+    transform: translateY(-2px);
+    box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.4);
+  }
+</style>
